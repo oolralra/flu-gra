@@ -1,0 +1,16 @@
+# 환경변수 (AWS 키 포함)
+.env
+
+# Terraform
+terraform/.terraform/
+terraform/*.tfstate
+terraform/*.tfstate.backup
+terraform/.terraform.lock.hcl
+
+# Python
+__pycache__/
+*.pyc
+
+# IDE
+.vscode/
+.idea/

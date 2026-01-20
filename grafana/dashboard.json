@@ -1,0 +1,51 @@
+{
+  "title": "Demo App Monitoring",
+  "tags": ["demo-app", "cloudwatch"],
+  "timezone": "browser",
+  "schemaVersion": 38,
+  "version": 1,
+  "panels": [
+    {
+      "id": 1,
+      "title": "Application Logs",
+      "type": "logs",
+      "gridPos": { "x": 0, "y": 0, "w": 24, "h": 10 },
+      "datasource": { "type": "cloudwatch", "uid": "cloudwatch" },
+      "targets": [{
+        "refId": "A",
+        "queryMode": "Logs",
+        "logGroups": [{ "arn": "arn:aws:logs:ap-northeast-2:865577889736:log-group:/demo-app/logs:*", "name": "/demo-app/logs" }],
+        "expression": "fields @timestamp, @message | sort @timestamp desc | limit 100",
+        "region": "ap-northeast-2"
+      }]
+    },
+    {
+      "id": 2,
+      "title": "Request Count",
+      "type": "timeseries",
+      "gridPos": { "x": 0, "y": 10, "w": 12, "h": 8 },
+      "datasource": { "type": "cloudwatch", "uid": "cloudwatch" },
+      "targets": [{
+        "refId": "A",
+        "queryMode": "Logs",
+        "logGroups": [{ "arn": "arn:aws:logs:ap-northeast-2:865577889736:log-group:/demo-app/logs:*", "name": "/demo-app/logs" }],
+        "expression": "filter @message like /INFO/\n| stats count() as requests by bin(1m)",
+        "region": "ap-northeast-2"
+      }]
+    },
+    {
+      "id": 3,
+      "title": "Error Count",
+      "type": "timeseries",
+      "gridPos": { "x": 12, "y": 10, "w": 12, "h": 8 },
+      "datasource": { "type": "cloudwatch", "uid": "cloudwatch" },
+      "targets": [{
+        "refId": "A",
+        "queryMode": "Logs",
+        "logGroups": [{ "arn": "arn:aws:logs:ap-northeast-2:865577889736:log-group:/demo-app/logs:*", "name": "/demo-app/logs" }],
+        "expression": "filter @message like /ERROR/\n| stats count() as errors by bin(1m)",
+        "region": "ap-northeast-2"
+      }]
+    }
+  ]
+}
