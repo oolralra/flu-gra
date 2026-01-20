@@ -65,4 +65,3 @@ terraform apply
 ## CloudWatch 로그 그룹
 
 - `/demo-app/logs` - 앱 로그
-- `/demo-app/metrics` - 메트릭 로그
