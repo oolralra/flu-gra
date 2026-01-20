@@ -11,9 +11,11 @@ Flask 앱 + Fluent Bit + CloudWatch + AWS Managed Grafana 모니터링 데모
 
 ## 실행 방법
 
-### 1. 환경변수 설정
+### 1. 환경변수 설정(.env 생성할것)
+
 ```bash
-.env
+AWS_ACCESS_KEY_ID=<액세스키>
+AWS_SECRET_ACCESS_KEY=<시크릿키>
 # .env 파일에 AWS 키 입력
 ```
 
