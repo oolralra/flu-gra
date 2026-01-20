@@ -41,7 +41,12 @@ terraform apply
 
 - 워크스페이스 - 인증 - 사용자 및 그룹 설정 - SSO 계정 추가
 
-### 6. 대시보드 임포트
+### 6. Data Source 등록
+
+- Grafana → Configuration → Data Sources → Add data source. 
+- 리전만 ap-northeast-2로 선택.
+
+### 7. 대시보드 임포트
 
 - `dashboard.json`파일의 logGroup 에 cloudwatch-로그-Log Management의 본인 ARN 입력
 - Grafana 접속 → Dashboards → Import
