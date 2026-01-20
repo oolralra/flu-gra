@@ -37,12 +37,16 @@ cd terraform
 terraform init
 terraform apply
 ```
+### 5. Amazon Grafana 워크스페이스에 SSO 계정 등록
 
-### 5. 대시보드 임포트
+- 워크스페이스 - 인증 - 사용자 및 그룹 설정 - SSO 계정 추가
+
+### 6. 대시보드 임포트
 
 - `dashboard.json`파일의 logGroup 에 cloudwatch-로그-Log Management의 본인 ARN 입력
 - Grafana 접속 → Dashboards → Import
 - `grafana/dashboard.json` 업로드
+
 
 
 ## 엔드포인트
